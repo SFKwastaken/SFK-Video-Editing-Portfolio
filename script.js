@@ -283,6 +283,7 @@ function initModalController() {
   const playPauseBtn = document.getElementById("modal-play-pause");
   const glitchBtn = document.getElementById("modal-glitch-trigger");
   const snowOverlay = document.getElementById("modal-noise-snow");
+  const modalBufferingIndicator = document.getElementById("modal-buffering-indicator");
 
   let isPlaying = true;
   let modalFrame = 0;
@@ -483,6 +484,23 @@ function initModalController() {
     });
   });
 
+  /* --- Buffering Events --- */
+  if (modalVideoPlayer) {
+    modalVideoPlayer.addEventListener("waiting", () => {
+      modalBufferingIndicator.style.display = "flex";
+    });
+    modalVideoPlayer.addEventListener("loadstart", () => {
+      modalBufferingIndicator.style.display = "flex";
+    });
+    modalVideoPlayer.addEventListener("playing", () => {
+      modalBufferingIndicator.style.display = "none";
+    });
+    modalVideoPlayer.addEventListener("canplay", () => {
+      modalBufferingIndicator.style.display = "none";
+    });
+  }
+
+  // Bind close events
   closeBtn.addEventListener("click", closeModal);
 
   // Close on backdrop click
