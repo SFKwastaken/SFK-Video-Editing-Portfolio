@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STEPHEN'S PORTFOLIO // My Video Editing Portfolio</title>
+  <meta name="description"
+    content="Immersive cinematic portfolio of a professional video editor and visual storyteller. Fusing futuristic editing monitors with high-end luxury editorials.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@400;700&family=Inter:wght@300;400;500;700&family=Share+Tech+Mono&display=swap"
+    rel="stylesheet">
+
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="cinematic-theme">
+  <!-- Interactive Canvas overlays for Film Grain, Scanlines & Noise -->
+  <canvas id="noise-canvas"></canvas>
+  <div class="crt-overlay"></div>
+  <div class="scanlines"></div>
+
+  <!-- Custom Cinematic Magnetic Cursor -->
+  <div id="custom-cursor">
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring">
+      <span class="cursor-label">PLAY</span>
+    </div>
+  </div>
+
+  <!-- Layout Container -->
+  <div class="app-container">
+
+    <!-- HEADER -->
+    <header class="site-header">
+      <div class="header-logo" id="logo-brand">
+        <span class="logo-bracket">[</span>
+        <span class="logo-text">STEPHEN'S PORTFOLIO</span>
+        <span class="logo-bracket">]</span>
+      </div>
+      <nav class="header-nav" id="main-nav">
+        <a href="#work" class="nav-link" data-hover="WORK">WORK</a>
+        <a href="#process" class="nav-link" data-hover="PROCESS">PROCESS</a>
+        <a href="#about" class="nav-link" data-hover="ABOUT">ABOUT</a>
+        <a href="#contact" class="nav-link" data-hover="CONTACT ME">CONTACT ME</a>
+      </nav>
+      <div class="header-status" id="status-indicator">
+        <span class="status-dot"></span>
+        <span class="status-text">AVAILABLE FOR PROJECTS</span>
+      </div>
+    </header>
+
+    <!-- MAIN SECTION -->
+    <main class="main-content">
+
+      <!-- HERO SECTION -->
+      <section class="hero-section" id="hero">
+
+        <!-- LEFT ZONE: Branding, statement, CTAs -->
+        <div class="hero-zone-left">
+          <div class="hero-title-container">
+            <h1 class="hero-title-main">I CUT<br>STORIES</h1>
+            <span class="hero-title-handwritten">that stay.</span>
+          </div>
+          <p class="hero-statement">
+            Transforming raw footage into captivating experiences through rhythm, emotion, and purpose.
+          </p>
+          <div class="hero-ctas">
+            <a href="#work" class="cta-circle-btn" id="cta-work-trigger" aria-label="View all work">
+              <svg viewBox="0 0 24 24" class="arrow-icon">
+                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                  stroke-linejoin="round" fill="none" />
+              </svg>
+            </a>
+            <a href="#work" class="cta-text-btn" id="cta-view-all">
+              <span class="cta-circle-outline">
+                <svg viewBox="0 0 24 24" class="arrow-icon-small">
+                  <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                    stroke-linejoin="round" fill="none" />
+                </svg>
+              </span>
+              <span class="cta-btn-text">VIEW ALL WORK</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- CENTER ZONE: Main Featured Project Preview Monitor -->
+        <div class="hero-zone-center">
+          <div class="vertical-metadata" id="featured-vertical-label">
+            <span class="meta-label">FEATURED PROJECT</span>
+            <span class="meta-divider-line"></span>
+            <span class="meta-number">001</span>
+          </div>
+
+          <div class="monitor-wrapper" id="featured-monitor">
+            <div class="monitor-top-bar">
+              <span class="monitor-status"><span class="rec-dot"></span>REC</span>
+              <span class="monitor-timecode" id="monitor-timecode-main">00:01:18:24</span>
+            </div>
+
+            <div class="monitor-screen">
+              <img src="assets/warped_featured.png" alt="Warped short film preview" class="featured-preview-image">
+              <div class="video-overlay-tint"></div>
+
+              <!-- Screen UI Overlays -->
+              <div class="screen-corners">
+                <div class="corner top-left"></div>
+                <div class="corner top-right"></div>
+                <div class="corner bottom-left"></div>
+                <div class="corner bottom-right"></div>
+              </div>
+              <div class="screen-crosshair"></div>
+
+              <!-- Project Details (Visible on screen) -->
+              <div class="featured-info-overlay">
+                <div class="featured-headers">
+                  <h2 class="featured-project-title">WARPED</h2>
+                  <span class="featured-project-genre">short film</span>
+                </div>
+                <p class="featured-project-synopsis">A SHORT FILM ABOUT PARADOX AND TIME.</p>
+
+                <div class="featured-actions">
+                  <button class="watch-trailer-btn" id="watch-trailer-trigger">
+                    <span class="play-icon">▶</span> WATCH TRAILER
+                  </button>
+                  <span class="featured-duration">01:18</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="monitor-bottom-bar">
+              <span class="playback-speed">PLAYBACK 1.0X</span>
+              <span class="audio-channel-meter">CH1 <span class="audio-bar-fill"></span> CH2 <span
+                  class="audio-bar-fill"></span></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT ZONE: Broken Futuristic Editor Console -->
+        <div class="hero-zone-right">
+          <div class="editor-terminal">
+            <div class="terminal-header">
+              <span class="terminal-file" id="terminal-file-name">C0038.MP4</span>
+              <span class="terminal-clock" id="terminal-timecode-live">17:42:31:07</span>
+            </div>
+
+            <!-- Small Thumbnail Strip -->
+            <div class="thumbnail-strip" id="editor-thumbnails">
+              <div class="thumbnail-item glitched-thumb">
+                <img src="assets/hype_acquire_ad.png" alt="clip fragment 1">
+                <div class="thumb-slice-overlay"></div>
+              </div>
+              <div class="thumbnail-item">
+                <img src="assets/Influencer_short.png" alt="clip fragment 2">
+              </div>
+              <div class="thumbnail-item">
+                <img src="assets/Treuhand_Brand.png" alt="clip fragment 3">
+              </div>
+              <div class="thumbnail-item glitched-thumb">
+                <img src="assets/Bts_reel.png" alt="clip fragment 4">
+                <div class="thumb-slice-overlay"></div>
+              </div>
+            </div>
+
+            <!-- Glitch waveforms & noise panels -->
+            <div class="glitch-waveforms">
+              <div class="waveform-svg-container">
+                <!-- SVG Audio Waveform that vibrates -->
+                <svg viewBox="0 0 100 20" preserveAspectRatio="none" class="live-waveform">
+                  <path d="M0,10 Q5,0 10,10 T20,10 T30,10 T40,10 T50,10 T60,10 T70,10 T80,10 T90,10 T100,10" fill="none"
+                    stroke="#B7A6FF" stroke-width="1" id="audio-wave-path"></path>
+                </svg>
+              </div>
+              <div class="color-bars-distorted">
+                <div class="color-bar-strip c1"></div>
+                <div class="color-bar-strip c2"></div>
+                <div class="color-bar-strip c3"></div>
+                <div class="color-bar-strip c4"></div>
+                <div class="color-bar-strip c5"></div>
+              </div>
+            </div>
+
+            <!-- Quote overlay -->
+            <div class="editor-quote-container">
+              <span class="quote-mark">“</span>
+              <p class="editor-quote">
+                Editing is where the story finds its <span class="neon-highlight">soul.</span>
+              </p>
+            </div>
+
+            <!-- Stacked Metadata Tags -->
+            <div class="editor-side-tags">
+              <span class="editor-tag">STORY</span>
+              <span class="editor-tag">RHYTHM</span>
+              <span class="editor-tag">EMOTION</span>
+            </div>
+
+            <!-- Crosshairs and grid indicators -->
+            <div class="crosshair-indicator bottom-right">+</div>
+            <div class="crosshair-indicator top-right">+</div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- SELECTED WORK SECTION -->
+      <section class="selected-work-section" id="work">
+        <div class="work-section-header">
+          <h2 class="work-section-title">SELECTED WORK</h2>
+          <div class="scroll-indicator">
+            <span class="scroll-text">SCROLL</span>
+            <span class="scroll-bars">
+              <span class="scroll-bar-node active"></span>
+              <span class="scroll-bar-node"></span>
+              <span class="scroll-bar-node"></span>
+              <span class="scroll-bar-node"></span>
+              <span class="scroll-bar-node"></span>
+            </span>
+          </div>
+          <div class="work-timecode" id="work-section-timecode">00:00:02:15</div>
+        </div>
+
+        <!-- Horizontal Projects Container -->
+        <div class="work-grid-horizontal-scroll" id="work-slider">
+
+          <!-- Project 1 -->
+          <div class="work-card" data-video="assets/vids/hype_acquire_ad.mp4" id="project-identity">
+            <div class="work-image-wrapper">
+              <img src="assets/hype_acquire_ad.png" alt="Identity Brand Film Still" class="work-image">
+              <div class="work-image-glitch"></div>
+              <div class="work-playhead-line"></div>
+            </div>
+            <div class="work-card-info">
+              <h3 class="work-title">HYPE ACQUIRE AD</h3>
+              <div class="work-metadata">
+                <span class="work-type">BRAND ADVERT</span>
+                <span class="work-dash">—</span>
+                <span class="work-duration">00:60</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="work-card" data-video="assets/vids/Influencer_short.mp4" id="project-elysium">
+            <div class="work-image-wrapper">
+              <img src="assets/Influencer_short.png" alt="Tosh Kicks Still" class="work-image">
+              <div class="work-image-glitch"></div>
+              <div class="work-playhead-line"></div>
+            </div>
+            <div class="work-card-info">
+              <h3 class="work-title">Tosh Kicks</h3>
+              <div class="work-metadata">
+                <span class="work-type">INFLUENCER SHORT</span>
+                <span class="work-dash">—</span>
+                <span class="work-duration">03:26</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="work-card" data-video="assets/vids/Treuhand_Brand.mp4" id="project-balance">
+            <div class="work-image-wrapper">
+              <img src="assets/Treuhand_Brand.png" alt="Social Media Client Still" class="work-image">
+              <div class="work-image-glitch"></div>
+              <div class="work-playhead-line"></div>
+            </div>
+            <div class="work-card-info">
+              <h3 class="work-title">SOCIAL MEDIA CLIENT</h3>
+              <div class="work-metadata">
+                <span class="work-type">INDUSTRY BRAND VIDEO</span>
+                <span class="work-dash">—</span>
+                <span class="work-duration">00:30</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 4 -->
+          <div class="work-card" data-video="assets/vids/Bts_Reel.mp4" id="project-nxtgen">
+            <div class="work-image-wrapper">
+              <img src="assets/Bts_reel.png" alt="BTS Reel Still" class="work-image">
+              <div class="work-image-glitch"></div>
+              <div class="work-playhead-line"></div>
+            </div>
+            <div class="work-card-info">
+              <h3 class="work-title">The Bad Batch</h3>
+              <div class="work-metadata">
+                <span class="work-type">BTS REEL</span>
+                <span class="work-dash">—</span>
+                <span class="work-duration">00:30</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- MOTION GRAPHICS SECTION -->
+      <section class="motion-graphics-section reveal-on-scroll" id="motion-graphics" style="padding-top: 50px;">
+        <div class="work-section-header">
+          <h2 class="work-section-title">MOTION GRAPHICS</h2>
+          <div class="work-timecode">00:01:10:05</div>
+        </div>
+
+        <div class="motion-grid" style="display: flex; justify-content: center; padding: 0 5%; max-width: 1400px; margin: 0 auto; margin-bottom: 100px;">
+          <!-- Project 1 -->
+          <div class="work-card" data-video="assets/vids/motion_graphics.mp4" id="project-motion" style="width: 100%; max-width: 800px; height: auto;">
+            <div class="work-image-wrapper" style="height: 450px; border-radius: 16px; overflow: hidden;">
+              <img src="assets/motion_graphics.png" alt="Motion Graphics" class="work-image" style="object-fit: cover;">
+              <div class="work-image-glitch"></div>
+              <div class="work-playhead-line"></div>
+            </div>
+            <div class="work-card-info">
+              <h3 class="work-title">MOTION GRAPHICS</h3>
+              <div class="work-metadata">
+                <span class="work-type">BRAND ADVERT</span>
+                <span class="work-dash">—</span>
+                <span class="work-duration">01:00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROCESS SECTION -->
+      <section class="process-section reveal-on-scroll" id="process">
+        <div class="process-header">
+          <div class="process-title-group">
+            <span class="mono-label accent-lime-text" style="opacity: 0.2; letter-spacing: 6px;">WORKFLOW</span>
+            <h2 class="section-title-large">THE POST-PRODUCTION TIMELINE</h2>
+          </div>
+          <div class="process-timecode" id="process-section-timecode">00:00:00:00</div>
+        </div>
+
+        <div class="timeline-container">
+          <!-- Timeline Track Header -->
+          <div class="timeline-tracks-header">
+            <div class="track-header-left">
+              <span class="process-timecode" id="process-section-timecode">00:00:32:22</span>
+              <div class="track-tools">
+                <span class="tool-icon active">◀</span>
+                <span class="tool-icon">⤡</span>
+                <span class="tool-icon">✋</span>
+                <span class="tool-icon">T</span>
+                <span class="tool-icon">🔍</span>
+              </div>
+            </div>
+            <div class="timeline-ruler">
+              <div class="ruler-markers">
+                <span>00:00:00:00</span>
+                <span>00:00:15:00</span>
+                <span>00:00:30:00</span>
+                <span>00:00:45:00</span>
+                <span>00:01:00:00</span>
+                <span>00:01:15:00</span>
+                <span>00:01:30:00</span>
+              </div>
+              <div class="ruler-ticks"></div>
+            </div>
+          </div>
+
+          <!-- Timeline Grid simulating editing software tracks -->
+          <div class="timeline-grid">
+
+            <!-- Track 1: INGEST (Video Track V2) -->
+            <div class="timeline-track video-track">
+              <div class="track-info">
+                <span class="track-name">V2</span>
+                <span class="track-type">Video</span>
+                <div class="track-icons">
+                  <span class="t-icon">🔒</span>
+                  <span class="t-icon">👁️</span>
+                </div>
+              </div>
+              <div class="track-blocks">
+                <div class="track-block block-ingest active" data-step="1">
+                  <span class="clip-text">RAW_A_CAM_01.MP4</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Track 2: CUTTING (Video Track V1) -->
+            <div class="timeline-track video-track">
+              <div class="track-info">
+                <span class="track-name">V1</span>
+                <span class="track-type">Video</span>
+                <div class="track-icons">
+                  <span class="t-icon">🔒</span>
+                  <span class="t-icon">👁️</span>
+                </div>
+              </div>
+              <div class="track-blocks">
+                <div class="track-block block-cut" data-step="2">
+                  <span class="clip-text">ROUGH_CUT_V1.PRPROJ</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Track 3: AUDIO & SOUND DESIGN (Audio Track A1) -->
+            <div class="timeline-track audio-track">
+              <div class="track-info">
+                <span class="track-name">A1</span>
+                <span class="track-type">Audio</span>
+                <div class="track-icons">
+                  <span class="t-icon">🔒</span>
+                  <span class="t-icon text-icon">M</span>
+                  <span class="t-icon text-icon">S</span>
+                </div>
+              </div>
+              <div class="track-blocks">
+                <div class="track-block block-grade" data-step="4">
+                  <span class="clip-text">MICROPHONE_AUDIO.WAV</span>
+                  <div class="clip-waveform"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Track 4: COLOR & FINISHING (Audio Track A2) -->
+            <div class="timeline-track audio-track">
+              <div class="track-info">
+                <span class="track-name">A2</span>
+                <span class="track-type">Audio</span>
+                <div class="track-icons">
+                  <span class="t-icon">🔒</span>
+                  <span class="t-icon text-icon">M</span>
+                  <span class="t-icon text-icon">S</span>
+                </div>
+              </div>
+              <div class="track-blocks">
+                <div class="track-block block-audio" data-step="3">
+                  <span class="clip-text">SOUND_DESIGN_STEMS.WAV</span>
+                  <div class="clip-waveform"></div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Playhead representing scrolling / interaction -->
+          <div class="timeline-playhead" id="timeline-playhead-bar">
+            <div class="playhead-handle"></div>
+          </div>
+        </div>
+
+          <!-- Timeline Bottom Controls -->
+          <div class="timeline-bottom-controls">
+            <div class="control-left">
+              <span class="ctrl-icon">⇋</span>
+            </div>
+            <div class="control-center">
+              <span class="ctrl-icon">⏮</span>
+              <span class="ctrl-icon">⏪</span>
+              <span class="ctrl-icon play-icon">▶</span>
+              <span class="ctrl-icon">⏩</span>
+              <span class="ctrl-icon">⏭</span>
+              <span class="ctrl-icon">🔁</span>
+            </div>
+            <div class="control-right">
+              <span class="ctrl-icon">🖵</span>
+              <span class="ctrl-icon">🎛</span>
+              <span class="ctrl-icon">◫</span>
+              <div class="zoom-slider">
+                <span class="zoom-icon">-</span>
+                <div class="slider-track"><div class="slider-thumb"></div></div>
+                <span class="zoom-icon">+</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- COLOR GRADE LAB SECTION -->
+      <section class="color-grade-lab" id="color-grade-lab">
+        <div class="lab-header">
+          <h2 class="lab-title">COLOR GRADE LAB</h2>
+          <p class="lab-subtitle">DRAG THE SLIDER OR HOVER CLIPS TO COMPARE RAW LOG VS FINAL GRADE</p>
+        </div>
+        
+        <div class="vertical-videos-grid">
+          <!-- Video 1 -->
+          <div class="v-video-wrapper">
+            <video src="assets/grade_vids/grade_1/CUTS_1_un-graded.mp4" loop muted playsinline class="v-video base-video"></video>
+            <div class="hover-video-container">
+              <video src="assets/grade_vids/grade_1/CUTS_1_graded.mp4" loop muted playsinline class="v-video"></video>
+            </div>
+            <div class="v-video-label">HOVER FOR GRADE</div>
+          </div>
+          <!-- Video 2 -->
+          <div class="v-video-wrapper">
+            <video src="assets/grade_vids/grade_2/CUTS_2_ungraded.mp4" loop muted playsinline class="v-video base-video"></video>
+            <div class="hover-video-container">
+              <video src="assets/grade_vids/grade_2/CUTS_2_graded.mp4" loop muted playsinline class="v-video"></video>
+            </div>
+            <div class="v-video-label">HOVER FOR GRADE</div>
+          </div>
+          <!-- Video 3 -->
+          <div class="v-video-wrapper">
+            <video src="assets/grade_vids/grade_3/CUTS_3_ungraded.mp4" loop muted playsinline class="v-video base-video"></video>
+            <div class="hover-video-container">
+              <video src="assets/grade_vids/grade_3/CUTS_3_graded.mp4" loop muted playsinline class="v-video"></video>
+            </div>
+            <div class="v-video-label">HOVER FOR GRADE</div>
+          </div>
+        </div>
+        
+        </div>
+      </section>
+
+      <!-- ABOUT SECTION -->
+      <section class="about-section reveal-on-scroll" id="about">
+        <div class="about-grid">
+
+          <!-- Column 1: Editorial Portrait & Terminal Graphics -->
+          <div class="about-visual-column">
+            <div class="meet-me-title">MEET ME</div>
+            <div class="about-console-frame">
+              <div class="console-border-lines"></div>
+
+              <!-- Styled CSS/SVG graphic container inside frame -->
+              <div class="console-graphic-box">
+                <img src="assets/profile_img.png" alt="Profile" class="console-profile-img">
+                <div class="crosshairs-overlay">+</div>
+                <!-- SVG Lens / Camera Aperture Grid -->
+                <svg viewBox="0 0 100 100" class="console-svg-aperture">
+                  <circle cx="50" cy="50" r="45" fill="none" stroke="rgba(217, 255, 0, 0.15)" stroke-width="0.5"
+                    stroke-dasharray="2,2" />
+                  <circle cx="50" cy="50" r="30" fill="none" stroke="var(--accent-lime)" stroke-width="0.5"
+                    opacity="0.3" />
+                  <circle cx="50" cy="50" r="15" fill="none" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1" />
+                  <line x1="50" y1="0" x2="50" y2="100" stroke="rgba(255, 255, 255, 0.05)" stroke-width="0.5" />
+                  <line x1="0" y1="50" x2="100" y2="50" stroke="rgba(255, 255, 255, 0.05)" stroke-width="0.5" />
+
+                  <!-- Aperture blades -->
+                  <path d="M50,20 L65,35 M50,80 L35,65 M80,50 L65,65 M20,50 L35,35" stroke="var(--accent-lavender)"
+                    stroke-width="0.75" opacity="0.6" />
+                </svg>
+
+                <!-- Terminal style overlay lines -->
+                <div class="console-text-overlay">
+                  <div class="console-log-row">SYS.LOC: 52.5200° N, 13.4050° E</div>
+                  <div class="console-log-row accent-lime-text">EDITOR STATUS: ONLINE</div>
+                  <div class="console-log-row">REEL_VERSION_4.2.X</div>
+                </div>
+
+                <div class="console-glitch-bar"></div>
+              </div>
+
+              <!-- Subtitle or tag -->
+              <div class="console-bottom-meta">
+                <span class="console-brand-tag">[ CAMERA_GRID_08 ]</span>
+                <span class="console-fps">23.976 FPS</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Column 2: Story & Statistics -->
+          <div class="about-text-column">
+            <span class="mono-label accent-lavender-text">THE STORYTELLER</span>
+
+            <h2 class="about-title">CRAFTING NARRATIVES<br>THAT RESONATE.</h2>
+
+            <p class="about-bio-statement">
+              I’m Stephen Moses-Azuoru, a video editor and VFX artist passionate about creating visuals that feel immersive, cinematic, and emotionally driven. Over the years, I’ve worked across film projects, commercial content, hospitality campaigns, and YouTube productions, developing a style that blends strong storytelling with detailed visual design. Whether I’m editing a fast-paced sequence or building complex VFX shots, I care deeply about rhythm, atmosphere, and the feeling a scene leaves behind after it ends.
+            </p>
+
+            <p class="about-bio-detail">
+              I draw a lot of inspiration from films, music, digital art, and the small visual details people usually overlook, lighting, texture, silence, movement, and mood. I love treating every project like its own world, where pacing, sound, movement, and composition all work together to shape the experience. For me, editing has never been just about putting clips together, it’s about finding the emotion hidden inside the footage and bringing it to life in a way people can actually feel.
+            </p>
+
+
+
+            <!-- Statistics Console -->
+            <div class="about-stats-panel" style="margin-top: 60px;">
+              <div class="stat-item">
+                <div class="stat-number-wrapper">
+                  <span class="stat-number accent-lime-text" data-val="120">0</span>
+                  <span class="stat-plus">+</span>
+                </div>
+                <span class="stat-label">PROJECTS EDIT</span>
+              </div>
+              <div class="stat-divider"></div>
+              <div class="stat-item">
+                <div class="stat-number-wrapper">
+                  <span class="stat-number accent-lavender-text" data-val="300">0</span>
+                  <span class="stat-plus">K+</span>
+                </div>
+                <span class="stat-label">VIDEO VIEWS</span>
+              </div>
+              <div class="stat-divider"></div>
+              <div class="stat-item">
+                <div class="stat-number-wrapper">
+                  <span class="stat-number" data-val="4">0</span>
+                  <span class="stat-plus">+</span>
+                </div>
+                <span class="stat-label">YEARS GRIND</span>
+              </div>
+            </div>
+
+            <!-- Signature handwritten note -->
+            <div class="about-signature-block">
+              <span class="about-sign-pre">Make it cut, make it</span>
+              <span class="about-sign-text">unforgettable.</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- CAREER TIMELINE SECTION -->
+      <section class="experience-section reveal-on-scroll" id="experience">
+        <div class="exp-header">
+          <h2 class="exp-title">CAREER TIMELINE</h2>
+          <p class="exp-subtitle">TRACKING MY PROFESSIONAL CUTS</p>
+        </div>
+
+        <div class="nle-timeline-container" id="nle-timeline">
+          <!-- The Central Track -->
+          <div class="nle-center-track"></div>
+
+          <!-- Job 4 (First) -->
+          <div class="nle-job-row left-track">
+            <div class="track-node"></div>
+            <div class="connecting-line"></div>
+            <div class="nle-clip">
+              <div class="clip-header">
+                <div class="clip-icon-wrapper">
+                  <svg viewBox="0 0 24 24"><path d="M21.2 5.8l-2.4-2.4c-.4-.4-1-.4-1.4 0l-1.4 1.4-1.4-1.4-1.4 1.4-1.4-1.4-1.4 1.4-1.4-1.4-1.4 1.4L6 3.4c-.4-.4-1-.4-1.4 0L2.2 5.8c-.4.4-.4 1 0 1.4l1.4 1.4v10.8c0 1.1.9 2 2 2h12.8c1.1 0 2-.9 2-2V8.6l1.4-1.4c.4-.4.4-1 0-1.4zM5.6 19.4V8.6l7.8 7.8v3H5.6zm12.8 0h-3v-3l-7.8-7.8h10.8v10.8z"/></svg>
+                </div>
+                <div class="clip-title-group">
+                  <span class="clip-title">LEAD VFX ARTIST</span>
+                  <span class="clip-date">TBC PICTURES • NOV 2022 — JUL 2024</span>
+                </div>
+              </div>
+              <ul class="clip-bullets">
+                <li>Led VFX production for a feature film, creating cinematic visuals that enhanced storytelling and scene immersion.</li>
+                <li>Handled compositing, CGI integration, rotoscoping, cleanup, and motion tracking across multiple production shots.</li>
+                <li>Worked closely with directors, editors, and post-production teams to maintain visual continuity throughout the film.</li>
+                <li>Optimized rendering workflows and post-production pipelines to improve efficiency under tight production deadlines.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Job 3 (Second) -->
+          <div class="nle-job-row right-track">
+            <div class="track-node"></div>
+            <div class="connecting-line"></div>
+            <div class="nle-clip">
+              <div class="clip-header">
+                <div class="clip-icon-wrapper">
+                  <svg viewBox="0 0 24 24"><path d="M20 3H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h4v2h8v-2h4c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 14H4V5h16v12zm-10-8.5v5l4.5-2.5-4.5-2.5z"/></svg>
+                </div>
+                <div class="clip-title-group">
+                  <span class="clip-title">VIDEO EDITOR</span>
+                  <span class="clip-date">MAISON FAHRENHEIT HOSPITALITY • OCT 2024 — DEC 2024</span>
+                </div>
+              </div>
+              <ul class="clip-bullets">
+                <li>Produced high-end promotional and social media content for a luxury hospitality and lifestyle brand.</li>
+                <li>Designed motion graphics, transitions, and visual treatments that matched the brand’s premium identity.</li>
+                <li>Edited marketing videos for campaigns, events, and digital platforms to increase audience engagement.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Job 2 (Third) -->
+          <div class="nle-job-row left-track">
+            <div class="track-node"></div>
+            <div class="connecting-line"></div>
+            <div class="nle-clip">
+              <div class="clip-header">
+                <div class="clip-icon-wrapper">
+                  <svg viewBox="0 0 24 24"><path d="M10 10.4L6.8 7.2C7.3 6.6 7.6 5.8 7.6 5c0-2.2-1.8-4-4-4S-.4 2.8-.4 5s1.8 4 4 4c.8 0 1.6-.3 2.2-.8l3.2 3.2-3.2 3.2c-.6-.5-1.4-.8-2.2-.8-2.2 0-4 1.8-4 4s1.8 4 4 4 4-1.8 4-4c0-.8-.3-1.6-.8-2.2l3.2-3.2 6.6 6.6c.4.4 1 .4 1.4 0 .4-.4.4-1 0-1.4l-7.8-7.8L21 4.6c.4-.4.4-1 0-1.4-.4-.4-1-.4-1.4 0l-6.6 6.6L10 10.4zm-6.4-3c-1.3 0-2.4-1.1-2.4-2.4 0-1.3 1.1-2.4 2.4-2.4 1.3 0 2.4 1.1 2.4 2.4 0 1.3-1.1 2.4-2.4 2.4zm0 11.2c-1.3 0-2.4-1.1-2.4-2.4 0-1.3 1.1-2.4 2.4-2.4 1.3 0 2.4 1.1 2.4 2.4 0 1.3-1.1 2.4-2.4 2.4z"/></svg>
+                </div>
+                <div class="clip-title-group">
+                  <span class="clip-title">LONG-FORM VIDEO EDITOR</span>
+                  <span class="clip-date">STARLIGHTMEDIA STUDIOS • JUL 2025 — DEC 2025</span>
+                </div>
+              </div>
+              <ul class="clip-bullets">
+                <li>Edited long-form content for Hot Scope News, focusing on celebrity news, storytelling, and viewer retention.</li>
+                <li>Structured videos using pacing techniques, narrative hooks, and engagement-focused editing workflows.</li>
+                <li>Integrated subtitles, motion graphics, sound design, and visual effects to improve the viewing experience.</li>
+                <li>Maintained consistency in tone, visual branding, and storytelling style across multiple video releases.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Job 1 (Fourth) -->
+          <div class="nle-job-row right-track">
+            <div class="track-node"></div>
+            <div class="connecting-line"></div>
+            <div class="nle-clip">
+              <div class="clip-header">
+                <div class="clip-icon-wrapper">
+                  <svg viewBox="0 0 24 24"><path d="M21.6 7.2c-.2-1.1-1.1-2-2.2-2.2C17.5 4.6 12 4.6 12 4.6s-5.5 0-7.4.4C3.5 5.2 2.6 6.1 2.4 7.2 2 9.1 2 12 2 12s0 2.9.4 4.8c.2 1.1 1.1 2 2.2 2.2 1.9.4 7.4.4 7.4.4s5.5 0 7.4-.4c1.1-.2 2-1.1 2.2-2.2.4-1.9.4-4.8.4-4.8s0-2.9-.4-4.8zM9.6 15.6V8.4l6.4 3.6-6.4 3.6z"/></svg>
+                </div>
+                <div class="clip-title-group">
+                  <span class="clip-title">YOUTUBE VIDEO EDITOR</span>
+                  <span class="clip-date">FREELANCE • ONGOING</span>
+                </div>
+              </div>
+              <ul class="clip-bullets">
+                <li>Provide end-to-end editing services for YouTube creators across entertainment, commentary, and lifestyle content.</li>
+                <li>Improve audience retention through strong pacing, storytelling structure, and platform-focused editing techniques.</li>
+                <li>Handle color grading, audio cleanup, sound balancing, and final mastering for upload-ready productions.</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- CONTACT SECTION -->
+      <section class="contact-section reveal-on-scroll" id="contact">
+        <!-- Background Image overlay for the left side -->
+        <div class="contact-bg-image"></div>
+        <div class="contact-bg-fade"></div>
+
+        <div class="contact-container">
+          
+          <!-- LEFT COLUMN -->
+          <div class="contact-left">
+            <div class="contact-title-group">
+              <h2 class="contact-title-huge">LET'S<br>CREATE</h2>
+              <div class="contact-title-cursive">
+                <span>something</span><br>
+                <span class="cursive-offset">extraordinary.</span>
+              </div>
+            </div>
+
+            <p class="contact-description">
+              I'm always open to discussing new projects,<br>creative ideas, or opportunities to be part<br>of your visions.
+            </p>
+
+            <div class="contact-info-list">
+              <div class="contact-info-item">
+                <div class="contact-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                </div>
+                <div class="contact-details">
+                  <span class="contact-label">EMAIL</span>
+                  <span class="contact-value">stephenmosesazuoru@gmail.com</span>
+                </div>
+              </div>
+
+              <div class="contact-info-item">
+                <div class="contact-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                </div>
+                <div class="contact-details">
+                  <span class="contact-label">PHONE</span>
+                  <span class="contact-value">+234 706 354 6298</span>
+                </div>
+              </div>
+
+              <div class="contact-info-item">
+                <div class="contact-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                </div>
+                <div class="contact-details">
+                  <span class="contact-label">LOCATION</span>
+                  <span class="contact-value">Lagos, Nigeria</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CENTER DIVIDER -->
+          <div class="contact-divider">
+            <span class="divider-text">CONTACT ME</span>
+            <div class="divider-dashed-line"></div>
+            <span class="divider-number">002</span>
+          </div>
+
+          <!-- RIGHT COLUMN (Form) -->
+          <div class="contact-right">
+            <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+              <input type="hidden" name="access_key" value="649e7ef9-edb1-4be1-994f-222979418e2b">
+              <!-- Honeypot Spam Protection -->
+              <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+              
+              <div class="form-row form-row-2">
+                <div class="form-group">
+                  <label>NAME</label>
+                  <input type="text" name="name" placeholder="Your name" required>
+                </div>
+                <div class="form-group">
+                  <label>EMAIL</label>
+                  <input type="email" name="email" placeholder="your@email.com" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>SUBJECT</label>
+                <input type="text" name="subject" placeholder="Project inquiry" required>
+              </div>
+              <div class="form-group">
+                <label>MESSAGE</label>
+                <textarea name="message" placeholder="Tell me about your project..." rows="8" required></textarea>
+              </div>
+              <div class="form-footer">
+                <button type="submit" class="submit-btn" aria-label="Send Message">
+                  <span class="submit-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                  </span>
+                  <span class="submit-text">SEND MESSAGE</span>
+                </button>
+                <span class="submit-note">I'LL GET BACK TO YOU SOON.</span>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+
+    <!-- FOOTER / TOOLS OF THE TRADE -->
+    <footer class="site-footer" id="footer-section">
+      <div class="footer-left">
+        <h4 class="footer-title">TOOLS OF THE TRADE</h4>
+        <div class="tools-grid" id="tools-display">
+
+          <!-- Premiere Pro -->
+          <div class="tool-item" title="Premiere Pro">
+            <span class="tool-icon adobe-pr">Pr</span>
+            <span class="tool-name">PREMIERE PRO</span>
+          </div>
+
+          <!-- After Effects -->
+          <div class="tool-item" title="After Effects">
+            <span class="tool-icon adobe-ae">Ae</span>
+            <span class="tool-name">AFTER EFFECTS</span>
+          </div>
+
+          <!-- Blender -->
+          <div class="tool-item" title="Blender">
+            <span class="tool-icon blender-badge">
+              <svg viewBox="0 0 24 24" class="svg-blender" fill="currentColor"><path d="M12.51 13.214c.046-.8.438-1.506 1.03-2.006a3.424 3.424 0 0 1 2.212-.79c.85 0 1.631.3 2.211.79.592.5.983 1.206 1.028 2.005.045.823-.285 1.586-.865 2.153a3.389 3.389 0 0 1-2.374.938 3.393 3.393 0 0 1-2.376-.938c-.58-.567-.91-1.33-.865-2.152M7.35 14.831c.006.314.106.922.256 1.398a7.372 7.372 0 0 0 1.593 2.757 8.227 8.227 0 0 0 2.787 2.001 8.947 8.947 0 0 0 3.66.76 8.964 8.964 0 0 0 3.657-.772 8.285 8.285 0 0 0 2.785-2.01 7.428 7.428 0 0 0 1.592-2.762 6.964 6.964 0 0 0 .25-3.074 7.123 7.123 0 0 0-1.016-2.779 7.764 7.764 0 0 0-1.852-2.043h.002L13.566 2.55l-.02-.015c-.492-.378-1.319-.376-1.86.002-.547.382-.609 1.015-.123 1.415l-.001.001 3.126 2.543-9.53.01h-.013c-.788.001-1.545.518-1.695 1.172-.154.665.38 1.217 1.2 1.22V8.9l4.83-.01-8.62 6.617-.034.025c-.813.622-1.075 1.658-.563 2.313.52.667 1.625.668 2.447.004L7.414 14s-.069.52-.063.831zm12.09 1.741c-.97.988-2.326 1.548-3.795 1.55-1.47.004-2.827-.552-3.797-1.538a4.51 4.51 0 0 1-1.036-1.622 4.282 4.282 0 0 1 .282-3.519 4.702 4.702 0 0 1 1.153-1.371c.942-.768 2.141-1.183 3.396-1.185 1.256-.002 2.455.41 3.398 1.175.48.391.87.854 1.152 1.367a4.28 4.28 0 0 1 .522 1.706 4.236 4.236 0 0 1-.239 1.811 4.54 4.54 0 0 1-1.035 1.626"/></svg>
+            </span>
+            <span class="tool-name">BLENDER</span>
+          </div>
+
+          <!-- CapCut -->
+          <div class="tool-item" title="CapCut">
+            <span class="tool-icon capcut-badge">
+              <svg viewBox="0 0 24 24" class="svg-capcut" fill="currentColor">
+                <path d="M4 12l5-5 2 2-3 3 3 3-2 2-5-5zm16 0l-5-5-2 2 3 3-3 3 2 2 5-5z"/>
+                <path d="M12 4l-2 2 2 2 2-2-2-2zm0 16l-2-2 2-2 2 2-2 2z"/>
+              </svg>
+            </span>
+            <span class="tool-name">CAPCUT</span>
+          </div>
+
+          <!-- Clip Studio -->
+          <div class="tool-item" title="Clip Studio">
+            <span class="tool-icon clipstudio-badge">
+              <svg viewBox="0 0 24 24" class="svg-clipstudio" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 18c0-4.4 3.6-8 8-8s8 3.6 8 8M6 18H2v-4a10 10 0 0 1 20 0v4h-4" stroke-linecap="round"/>
+                <circle cx="14" cy="10" r="2" fill="currentColor" stroke="none"/>
+              </svg>
+            </span>
+            <span class="tool-name">CLIP STUDIO</span>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="footer-right">
+        <span class="footer-cta-text">LET'S CREATE<br>SOMETHING<br>EXTRAORDINARY.</span>
+        <div class="radar-btn-container" id="footer-radar-btn">
+          <div class="sonar-ring r1"></div>
+          <div class="sonar-ring r2"></div>
+          <div class="sonar-ring r3"></div>
+          <div class="sonar-core"></div>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- VIDEO/TRAILER MODAL -->
+  <div class="modal-container" id="trailer-modal">
+    <button class="modal-close-btn" id="modal-close-trigger" aria-label="Close modal">×</button>
+    <div class="modal-content">
+
+      <!-- Monitor Frame inside Modal -->
+      <div class="modal-monitor">
+        <div class="modal-monitor-header">
+          <span class="modal-monitor-title" id="modal-project-title">PROJECT PREVIEW</span>
+          <span class="modal-monitor-timecode" id="modal-timecode">00:00:00:00</span>
+        </div>
+
+        <div class="modal-screen-container">
+          <!-- CRT & Glitch Overlays inside Modal -->
+          <div class="modal-crt-overlay"></div>
+          <div class="modal-vhs-grain"></div>
+          <div class="modal-scanlines"></div>
+
+          <!-- Mockup Video screen / Real Video Player -->
+          <div class="modal-video-box">
+            <div class="vhs-glitch-bar"></div>
+            <img src="" alt="Project Video Reel" class="modal-video-still" id="modal-video-still-img">
+            <video class="modal-video-player" id="modal-video-player" loop muted playsinline
+              style="max-width: 100%; max-height: 70vh; width: auto; height: auto; display: none; margin: 0 auto;"></video>
+            <iframe class="modal-youtube-player" id="modal-youtube-player" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen
+              style="max-width: 100%; height: 70vh; aspect-ratio: 9/16; display: none; margin: 0 auto;"></iframe>
+            <div class="modal-playback-state">
+              <div class="play-state-indicator">
+                <span class="play-triangle">▶</span> PLAYING
+              </div>
+            </div>
+
+            <!-- Static/Snow Noise Overlay (fades in and out randomly) -->
+            <div class="noise-snow-overlay" id="modal-noise-snow"></div>
+          </div>
+        </div>
+
+        <div class="modal-monitor-footer">
+          <div class="modal-controls">
+            <button class="m-control-btn" id="modal-play-pause">PAUSE</button>
+            <span class="m-control-divider">|</span>
+            <button class="m-control-btn" id="modal-glitch-trigger">INJECT GLITCH</button>
+          </div>
+          <div class="modal-audio-track">
+            <span class="audio-track-label">AUDIO OVERRIDE</span>
+            <div class="audio-spectrum">
+              <span class="spectrum-bar sb1"></span>
+              <span class="spectrum-bar sb2"></span>
+              <span class="spectrum-bar sb3"></span>
+              <span class="spectrum-bar sb4"></span>
+              <span class="spectrum-bar sb5"></span>
+              <span class="spectrum-bar sb6"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- JavaScript file -->
+  <script src="script.js"></script>
+</body>
+
+</html>
