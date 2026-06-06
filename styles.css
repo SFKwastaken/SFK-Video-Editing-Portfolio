@@ -3112,6 +3112,16 @@ body.hover-purple #custom-cursor .cursor-dot {
   text-transform: uppercase;
 }
 
+.lab-mobile-note {
+  display: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 8px;
+  letter-spacing: 1px;
+}
+
 .vertical-videos-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -3203,6 +3213,18 @@ body.hover-purple #custom-cursor .cursor-dot {
     grid-template-columns: 1fr;
     gap: 20px;
     max-width: 400px;
+  }
+  .lab-mobile-note {
+    display: block;
+  }
+  .v-video-wrapper.mobile-revealed .hover-video-container {
+    clip-path: inset(0 0% 0 0);
+  }
+  .v-video-wrapper:hover .hover-video-container {
+    clip-path: inset(0 100% 0 0); /* Disable pure hover reveal on mobile */
+  }
+  .v-video-wrapper.mobile-revealed:hover .hover-video-container {
+    clip-path: inset(0 0% 0 0); /* Re-enable if toggled on */
   }
 }
 

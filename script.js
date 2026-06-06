@@ -843,13 +843,33 @@ function startStatsCounter() {
 /* --- 12. Vertical Videos Play-On-Hover & Sync --- */
 function initVerticalVideos() {
   const vWrappers = document.querySelectorAll('.v-video-wrapper');
+  const isMobile = window.innerWidth <= 900;
   
   vWrappers.forEach(wrapper => {
     const videos = wrapper.querySelectorAll('video');
+    const label = wrapper.querySelector('.v-video-label');
     if (videos.length < 2) return;
     
     const baseVid = videos[0];
     const hoverVid = videos[1];
+
+    if (isMobile) {
+      if (label) label.textContent = "TAP FOR GRADE";
+      
+      // Pause both at start on mobile
+      baseVid.pause();
+      hoverVid.pause();
+      
+      wrapper.addEventListener('click', () => {
+        wrapper.classList.toggle('mobile-revealed');
+        if (wrapper.classList.contains('mobile-revealed')) {
+          if (label) label.textContent = "TAP TO HIDE GRADE";
+        } else {
+          if (label) label.textContent = "TAP FOR GRADE";
+        }
+      });
+      return; // Skip hover logic on mobile
+    }
 
     // Force strict loop based on the SHORTER of the two videos to prevent freezing if exports have mismatched lengths
     baseVid.addEventListener('timeupdate', () => {
