@@ -82,6 +82,13 @@ function initNoiseCanvas() {
 /* --- 2. Custom Magnetic Cursor --- */
 function initCustomCursor() {
   const cursor = document.getElementById("custom-cursor");
+  
+  // Disable completely on touch devices for better performance
+  if (window.matchMedia("(pointer: coarse)").matches) {
+    if (cursor) cursor.style.display = 'none';
+    return;
+  }
+  
   const ring = cursor.querySelector(".cursor-ring");
   const dot = cursor.querySelector(".cursor-dot");
 
@@ -928,3 +935,30 @@ function initExperienceTimeline() {
 }
 
 initExperienceTimeline();
+
+/* --- 14. Mobile Menu Toggle --- */
+function initMobileMenu() {
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const overlay = document.getElementById('mobile-menu');
+  const mobileLinks = document.querySelectorAll('.mobile-link');
+  
+  if (!menuBtn || !overlay) return;
+
+  menuBtn.addEventListener('click', () => {
+    menuBtn.classList.toggle('open');
+    overlay.classList.toggle('active');
+    
+    // Prevent scrolling when menu is open
+    document.body.style.overflow = overlay.classList.contains('active') ? 'hidden' : '';
+  });
+
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      menuBtn.classList.remove('open');
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+  });
+}
+
+initMobileMenu();

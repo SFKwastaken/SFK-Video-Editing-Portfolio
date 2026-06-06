@@ -330,17 +330,87 @@ body.hover-purple #custom-cursor .cursor-dot {
   100% { opacity: 1; transform: scale(1.1); box-shadow: 0 0 12px var(--accent-lime); }
 }
 
-@media (max-width: 900px) {
-  .header-nav { display: none; } /* Could toggle mobile menu later */
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+  padding: 10px;
 }
 
-@media (max-width: 600px) {
+.hamburger-line {
+  display: block;
+  width: 25px;
+  height: 2px;
+  background-color: var(--text-main);
+  margin: 5px 0;
+  transition: all 0.3s ease;
+}
+
+/* Menu Open State */
+.mobile-menu-btn.open .hamburger-line:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+  background-color: var(--accent-lime);
+}
+.mobile-menu-btn.open .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+.mobile-menu-btn.open .hamburger-line:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+  background-color: var(--accent-lime);
+}
+
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(5, 5, 5, 0.98);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.mobile-menu-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.mobile-nav-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.mobile-link {
+  font-family: var(--font-mono);
+  font-size: 24px;
+  color: var(--text-main);
+  text-decoration: none;
+  letter-spacing: 0.2em;
+  transition: color 0.3s ease;
+}
+
+.mobile-link:hover, .mobile-link:active {
+  color: var(--accent-lime);
+}
+
+@media (max-width: 900px) {
+  .header-nav { display: none; }
+  .header-status { display: none; } /* Hide status dot on mobile to save space */
+  .mobile-menu-btn { display: block; }
   .site-header {
-    flex-direction: column;
-    justify-content: center;
-    height: auto;
-    padding: 20px 0;
-    gap: 15px;
+    height: 80px;
+    margin-bottom: 20px;
+    justify-content: space-between;
   }
 }
 /* ==========================================================================
@@ -388,7 +458,7 @@ body.hover-purple #custom-cursor .cursor-dot {
 
 .hero-title-main {
   font-family: var(--font-title);
-  font-size: clamp(4.5rem, 6vw, 7.5rem);
+  font-size: clamp(3.2rem, 8vw, 7.5rem);
   line-height: 0.85;
   letter-spacing: -0.02em;
   color: var(--text-main);
@@ -398,7 +468,7 @@ body.hover-purple #custom-cursor .cursor-dot {
 
 .hero-title-handwritten {
   font-family: var(--font-cursive);
-  font-size: clamp(2.5rem, 3.5vw, 4.5rem);
+  font-size: clamp(1.8rem, 4vw, 4.5rem);
   color: var(--accent-lime);
   position: absolute;
   bottom: -22px;
