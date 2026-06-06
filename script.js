@@ -463,11 +463,11 @@ function initModalController() {
 
   // Bind Events
   watchFeaturedBtn.addEventListener("click", () => {
-    openModal("Warped (Featured)", "assets/vids/warped_featured.mp4");
+    openModal("Warped (Featured)", "/assets/vids/warped_featured.mp4");
   });
 
   watchMonitorScreen.addEventListener("click", () => {
-    openModal("Warped (Featured)", "assets/vids/warped_featured.mp4");
+    openModal("Warped (Featured)", "/assets/vids/warped_featured.mp4");
   });
 
   workCards.forEach((card) => {

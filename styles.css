@@ -2317,7 +2317,7 @@ body.hover-purple #custom-cursor .cursor-dot {
   left: 0;
   width: 50%;
   height: 100%;
-  background-image: url('assets/motion_graphics.png');
+  background-image: url('/assets/motion_graphics.png');
   background-size: cover;
   background-position: center;
   opacity: 0.15;
