@@ -493,6 +493,7 @@ body.hover-purple #custom-cursor .cursor-dot {
   display: flex;
   align-items: center;
   gap: 24px;
+  flex-wrap: wrap;
 }
 
 /* Media-control-inspired CTA buttons */
@@ -507,6 +508,7 @@ body.hover-purple #custom-cursor .cursor-dot {
   border-radius: 50%;
   border: none;
   cursor: pointer;
+  flex-shrink: 0;
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), 
               box-shadow 0.3s ease;
   box-shadow: 0 0 10px rgba(var(--accent-lime-rgb), 0.1);
@@ -544,6 +546,7 @@ body.hover-purple #custom-cursor .cursor-dot {
   height: 44px;
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 50%;
+  flex-shrink: 0;
   transition: border-color 0.3s ease, transform 0.3s ease;
 }
 
