@@ -3278,6 +3278,13 @@ body.hover-purple #custom-cursor .cursor-dot {
   text-align: center;
 }
 
+.mobile-v-layer, .mobile-label {
+  display: none;
+}
+.desktop-v-layer, .desktop-label {
+  display: block;
+}
+
 @media (max-width: 900px) {
   .vertical-videos-grid {
     grid-template-columns: 1fr;
@@ -3287,15 +3294,41 @@ body.hover-purple #custom-cursor .cursor-dot {
   .lab-mobile-note {
     display: block;
   }
-  .v-video-wrapper.mobile-revealed .hover-video-container {
-    clip-path: inset(0 0% 0 0);
+  
+  .desktop-v-layer, .desktop-label {
+    display: none !important;
   }
-  .v-video-wrapper:hover .hover-video-container {
-    clip-path: inset(0 100% 0 0); /* Disable pure hover reveal on mobile */
+  
+  .mobile-v-layer {
+    display: block !important;
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
   }
-  .v-video-wrapper.mobile-revealed:hover .hover-video-container {
-    clip-path: inset(0 0% 0 0); /* Re-enable if toggled on */
+  
+  .mobile-label {
+    display: block !important;
   }
+
+  .mobile-scanner {
+    clip-path: inset(0 100% 0 0);
+    animation: sweepReveal 4s ease-in-out infinite alternate;
+  }
+  
+  .scanner-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 2px;
+    background-color: var(--accent-lime);
+    box-shadow: 0 0 10px var(--accent-lime);
+    z-index: 10;
+  }
+}
+
+@keyframes sweepReveal {
+  0% { clip-path: inset(0 100% 0 0); }
+  100% { clip-path: inset(0 0% 0 0); }
 }
 
 /* --- Buffering Indicator --- */

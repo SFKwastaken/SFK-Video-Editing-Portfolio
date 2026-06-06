@@ -861,20 +861,9 @@ function initVerticalVideos() {
     const hoverVid = videos[1];
 
     if (isMobile) {
-      if (label) label.textContent = "TAP FOR GRADE";
-      
-      // Pause both at start on mobile
+      // The videos are hidden by CSS on mobile (replaced by images). Ensure they are paused to save resources.
       baseVid.pause();
       hoverVid.pause();
-      
-      wrapper.addEventListener('click', () => {
-        wrapper.classList.toggle('mobile-revealed');
-        if (wrapper.classList.contains('mobile-revealed')) {
-          if (label) label.textContent = "TAP TO HIDE GRADE";
-        } else {
-          if (label) label.textContent = "TAP FOR GRADE";
-        }
-      });
       return; // Skip hover logic on mobile
     }
 
